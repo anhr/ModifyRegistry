@@ -30,10 +30,10 @@ namespace Utility.ModifyRegistry
 	{
         /// <summary>
         /// Constructor.
-        /// <para><param name="BaseRegistryKey">BaseRegistryKey: base key</param></para>
-        /// <para><param name="companyName">companyName: your company name</param></para>
-        /// <para><param name="productName">productName: your application product name</param></para>
         /// </summary>
+        /// <param name="BaseRegistryKey">base key</param>
+        /// <param name="companyName">your company name</param>
+        /// <param name="productName">your application product name</param>
         public ModifyRegistry(RegistryKey BaseRegistryKey = null, string companyName = null, string productName = null)
         {
             if (BaseRegistryKey == null)
@@ -74,7 +74,7 @@ namespace Utility.ModifyRegistry
                 }
                 else return Value;
 			}
-            if((valueKind != RegistryValueKind.Unknown) && (valueKind != sk1.GetValueKind(KeyName)))
+            if ((valueKind != RegistryValueKind.Unknown) && (valueKind != sk1.GetValueKind(KeyName)))
                 throw new Exception( String.Format("Invalid registry data type {0}.", valueKind));
             object value = sk1.GetValue(KeyName);
             sk1.Close();
