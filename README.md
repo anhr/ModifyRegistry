@@ -11,11 +11,11 @@ and to instantiate your class:
 
 `ModifyRegistry myRegistry = new ModifyRegistry(Registry.CurrentUser, "my company name", "my applacation product name");`
 
-parameter 1: BaseRegistryKey Registry.LocalMachine	or Registry.CurrentUser. Default - Registry.LocalMachine
+parameter 1: BaseRegistryKey [Registry.LocalMachine](https://msdn.microsoft.com/en-us/library/microsoft.win32.registry.localmachine%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396)	or [Registry.CurrentUser](https://msdn.microsoft.com/en-us/library/microsoft.win32.registry.currentuser(v=vs.110).aspx). Default - Registry.LocalMachine
 
 parameter 2: company name. Default - null
 
-parameter 3: applacation product name. Default - Application.ProductName
+parameter 3: applacation product name. Default - [Application.ProductName](https://msdn.microsoft.com/en-us/library/system.windows.forms.application.productname%28v=vs.110%29.aspx)
 
 myRegistry.SubKey:	"SOFTWARE\\[my company name]\\[my applacation product name]";
 
