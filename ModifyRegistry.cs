@@ -74,9 +74,24 @@ namespace Utility.ModifyRegistry
                 }
                 else return Value;
 			}
+            object value = sk1.GetValue(KeyName);
+            if (value == null)
+            {
+                if (Value != null)
+                {
+                    Write(KeyName, Value, valueKind);
+                    value = sk1.GetValue(KeyName);
+                    if (value == null)
+                        throw new Exception(String.Format("Open {0} key failed!", KeyName));
+                }
+                else
+                {
+                    sk1.Close();
+                    return Value;
+                }
+            }
             if ((valueKind != RegistryValueKind.Unknown) && (valueKind != sk1.GetValueKind(KeyName)))
                 throw new Exception( String.Format("Invalid registry data type {0}.", valueKind));
-            object value = sk1.GetValue(KeyName);
             sk1.Close();
             return value;
 		}
